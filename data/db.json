@@ -1,7 +1,8 @@
 {
   "cars": [
     {
-      "id": 2,
+      "id": 1,
+      "slug": "bmw-m3-competition",
       "brand": "BMW",
       "model": "M3 Competition",
       "price": 725,
@@ -26,7 +27,8 @@
       ]
     },
     {
-      "id": 3,
+      "id": 2,
+      "slug": "mercedes-benz-amg-a-35-4matic",
       "brand": "Mercedes-Benz",
       "model": "AMG A 35 4MATIC",
       "price": 725,
@@ -51,7 +53,8 @@
       ]
     },
     {
-      "id": 4,
+      "id": 3,
+      "slug": "porshe-911-gt3",
       "brand": "Porshe",
       "model": "911 GT3",
       "price": 725,
@@ -76,7 +79,8 @@
       ]
     },
     {
-      "id": 5,
+      "id": 4,
+      "slug": "porshe-911-turbo-s",
       "brand": "Porshe",
       "model": "911 Turbo S",
       "price": 725,
@@ -101,7 +105,8 @@
       ]
     },
     {
-      "id": 6,
+      "id": 5,
+      "slug": "rolls-royce-wraith",
       "brand": "Rolls Royce",
       "model": "Wraith",
       "price": 725,
