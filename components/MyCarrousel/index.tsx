@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
-
+import Image from "next/image";
 import { Card, Container, Carrousel, Button } from "./styles";
 
 import {
@@ -38,7 +38,7 @@ const MyCarrousel = (
         <Carrousel>
           {items.map((item: { id: number; color: string; image: string }) => (
             <Card key={item.id} isFocused={focusItem().id === item.id}>
-              <img src={item.image} />
+              <Image src={item.image} width={300} height={180} />
             </Card>
           ))}
         </Carrousel>

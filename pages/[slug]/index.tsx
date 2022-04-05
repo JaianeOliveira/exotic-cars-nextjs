@@ -20,7 +20,12 @@ const CarDetails = ({ data }: { data: car }) => {
     <Screen>
       <CarDataContainer image={focusItem().image}>
         <Title>
-          <img src={data.logo} alt={data.brand} />
+          <Image
+            src={data.logo}
+            alt={data.brand}
+            width={200}
+            height={200}
+          />
           <div>
             <h1>
               {data.brand} {data.model}
