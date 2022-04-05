@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Screen,
   CarDataContainer,
@@ -18,14 +20,10 @@ const CarDetails = ({ data }: { data: car }) => {
 
   return (
     <Screen>
+      <img className="bgImage" src={focusItem().image} alt={data.slug} />
       <CarDataContainer image={focusItem().image}>
         <Title>
-          <Image
-            src={data.logo}
-            alt={data.brand}
-            width={200}
-            height={200}
-          />
+          <img src={data.logo} alt={data.brand} />
           <div>
             <h1>
               {data.brand} {data.model}
@@ -40,10 +38,13 @@ const CarDetails = ({ data }: { data: car }) => {
           <h3>0{focusItem().id}</h3>
           <p>{focusItem().color}</p>
         </ColorDetail>
-        <BackToCatalogButton>
-          <BsArrowLeft />
-          <p> Back to Catalog</p>
-        </BackToCatalogButton>
+        <Link href="/" passHref>
+          <BackToCatalogButton>
+            <BsArrowLeft />
+            <p> Back to Catalog</p>
+          </BackToCatalogButton>
+        </Link>
+
         <BookNowButton>
           <p>Book Now</p>
           <BsArrowRight />

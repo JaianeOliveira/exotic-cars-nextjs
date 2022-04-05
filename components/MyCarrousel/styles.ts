@@ -1,6 +1,25 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export const Card = styled.div<{ isFocused: boolean }>`
+const slideIn = keyframes`
+from {
+  opacity: 0;
+  transform: translateX(-300px);
+}
+to {
+  opacity: 1;
+}
+`;
+
+const slideOut = keyframes`
+from {
+  opacity: 0;
+  transform: translateX(300px);
+}
+to {
+  opacity: 1;
+}
+`;
+export const Card = styled.div<{ isFocused: boolean; isLeft: boolean }>`
   display: flex;
   height: 180px;
   border-radius: 20px;
@@ -10,9 +29,11 @@ export const Card = styled.div<{ isFocused: boolean }>`
 
   img {
     transform: scale(${(props) => (props.isFocused ? 1.5 : 1)});
-  }
-  @media (max-width: 426px) {
-    transform: scale(1);
+    animation: ${(props) => (!props.isLeft ? slideIn : slideOut)} 0.5s ease;
+
+    @media (max-width: 426px) {
+      transform: scale(1);
+    }
   }
 `;
 export const Container = styled.div`

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import Image from "next/image";
@@ -12,10 +13,12 @@ const MyCarrousel = (
   carDetails: { id: number; color: string; image: string }[]
 ) => {
   const [items, setItems] = useState(carDetails);
+  const [isLeftDirection, setIsLeftDirection] = useState(false);
   const next = () => {
     const newArr = [...items, items[0]];
     newArr.shift();
     setItems(newArr);
+    setIsLeftDirection(false);
   };
 
   const back = () => {
@@ -23,6 +26,7 @@ const MyCarrousel = (
     newArr.unshift(items[items.length - 1]);
     newArr.pop();
     setItems(newArr);
+    setIsLeftDirection(true);
   };
 
   const focusItem = () => {
@@ -37,8 +41,12 @@ const MyCarrousel = (
         </Button>
         <Carrousel>
           {items.map((item: { id: number; color: string; image: string }) => (
-            <Card key={item.id} isFocused={focusItem().id === item.id}>
-              <Image src={item.image} width={300} height={180} />
+            <Card
+              key={item.id}
+              isFocused={focusItem().id === item.id}
+              isLeft={isLeftDirection}
+            >
+              <img src={item.image} alt={item.color} />
             </Card>
           ))}
         </Carrousel>

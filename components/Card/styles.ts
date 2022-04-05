@@ -9,6 +9,7 @@ export const CardContainer = styled.div`
   @media (min-width: 1527px) {
     max-width: 287px;
   }
+
   border-radius: 20px;
   margin: 10px;
   padding: 20px;

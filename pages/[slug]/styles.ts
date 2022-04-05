@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -7,22 +7,36 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const backgroundResize = keyframes`
+from {
+  transform: scale(0.5);
+}
+to {
+  transform: scale(1);
+}
+`;
+
 export const Screen = styled.div`
-  flex: 1;
-  padding-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+
+  .bgImage {
+    width: 100vw;
+    animation: ${backgroundResize} 0.5s ease;
+  }
 `;
 
 export const CarDataContainer = styled.div<{ image: string }>`
   display: flex;
-  height: 100vh;
   flex-direction: column;
-  background-image: url(${(props) => props.image});
+  /* background-image: url(${(props) => props.image});
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* padding: 20vh 10vw 5vh 10vw; */
-
+   */
   align-items: center;
   justify-content: space-between;
 `;
@@ -95,18 +109,10 @@ export const Title = styled.div`
   }
 `;
 
-export const BackgroundImage = styled.img`
-  width: 90%;
-
-  @media (max-width: 1025px) {
-    width: 85%;
-  }
-`;
-
 export const ColorDetail = styled.div`
   color: #313136;
-  position: relative;
-  left: 40vw;
+  position: fixed;
+  left: 85vw;
   top: 30vh;
   font-size: 2.5rem;
   max-width: 40px;
@@ -143,8 +149,8 @@ export const ColorDetail = styled.div`
   }
 
   @media (max-width: 619px) {
-    top: 64vh;
-    left: 0;
+    top: 65vh;
+    left: 45%;
   }
 
   @media (max-width: 425px) {
