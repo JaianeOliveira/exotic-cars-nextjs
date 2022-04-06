@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 
-import { useRouter } from "next/router";
 import {
   Screen,
   CarDataContainer,
@@ -11,14 +10,10 @@ import {
   ColorDetail,
   BackToCatalogButton,
   BookNowButton,
-} from "./styles";
+} from "styles/page-styles/details";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { Carrousel } from "components";
 import car from "types/car";
-
-type errorData = {
-  message: string;
-};
 
 const CarDetails = ({ data }: { data: car }) => {
   const { CarrouselComponent, focusItem } = Carrousel(data.details);
@@ -67,8 +62,7 @@ const CarDetails = ({ data }: { data: car }) => {
 export const getServerSideProps = async (context: any) => {
   const car = await fetch(`http://localhost:3000/api/${context.query.slug}`)
     .then((response) => response.json())
-    .catch((error) => error.json());
-  console.log(car);
+    .catch((error) => error);
   return {
     props: {
       data: car,

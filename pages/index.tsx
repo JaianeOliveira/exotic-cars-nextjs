@@ -1,10 +1,12 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import { Card } from "components";
-import { Screen } from "./styles";
+import { Screen } from "styles/page-styles/home";
 import car from "types/car";
 
-const Home: NextPage = ({ data }: any) => {
+const Home = ({ data }: { data: car[] }) => {
+  if (!data[0].slug) {
+    return <div>Error</div>;
+  }
   return (
     <Screen>
       <Head>
@@ -20,7 +22,7 @@ const Home: NextPage = ({ data }: any) => {
 export const getServerSideProps = async (context: any) => {
   const response = await fetch(`http://localhost:3000/api/cars`)
     .then((response) => response.json())
-    .catch((error) => error.json());
+    .catch((error) => JSON.stringify(error));
 
   return {
     props: {
