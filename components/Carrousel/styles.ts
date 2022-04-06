@@ -47,7 +47,7 @@ export const Container = styled.div`
   background-color: transparent;
 `;
 
-export const Carrousel = styled.div`
+export const CarrouselContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;

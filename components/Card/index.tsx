@@ -10,10 +10,8 @@ import {
   Price,
   MoreOptionsButton,
 } from "./styles";
-
-import car from "types/car";
-
 import { BsThreeDots } from "react-icons/bs";
+import car from "types/car";
 import Colors from "utils/constants/colors";
 
 const Card = (props: car) => {

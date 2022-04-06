@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 import {
   Screen,
   CarDataContainer,
@@ -10,16 +10,20 @@ import {
   BackToCatalogButton,
   BookNowButton,
 } from "./styles";
-
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { Carrousel } from "components";
 import car from "types/car";
-import { MyCarrousel } from "components";
 
 const CarDetails = ({ data }: { data: car }) => {
-  const { RenderCarrousel: Carrousel, focusItem } = MyCarrousel(data.details);
+  const { CarrouselComponent, focusItem } = Carrousel(data.details);
 
   return (
     <Screen>
+      <Head>
+        <title>
+          {data.brand} {data.model}
+        </title>
+      </Head>
       <img className="bgImage" src={focusItem().image} alt={data.slug} />
       <CarDataContainer image={focusItem().image}>
         <Title>
@@ -49,7 +53,7 @@ const CarDetails = ({ data }: { data: car }) => {
           <p>Book Now</p>
           <BsArrowRight />
         </BookNowButton>
-        <Carrousel />
+        <CarrouselComponent />
       </CarDataContainer>
     </Screen>
   );

@@ -1,15 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
-import Image from "next/image";
-import { Card, Container, Carrousel, Button } from "./styles";
+import { Card, Container, CarrouselContainer, Button } from "./styles";
 
 import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 
-const MyCarrousel = (
+const Carrousel = (
   carDetails: { id: number; color: string; image: string }[]
 ) => {
   const [items, setItems] = useState(carDetails);
@@ -39,7 +38,7 @@ const MyCarrousel = (
         <Button onClick={back}>
           <BsFillArrowLeftCircleFill size={30} color="#313136" />
         </Button>
-        <Carrousel>
+        <CarrouselContainer>
           {items.map((item: { id: number; color: string; image: string }) => (
             <Card
               key={item.id}
@@ -49,7 +48,7 @@ const MyCarrousel = (
               <img src={item.image} alt={item.color} />
             </Card>
           ))}
-        </Carrousel>
+        </CarrouselContainer>
         <Button onClick={next}>
           <BsFillArrowRightCircleFill size={30} color="#313136" />
         </Button>
@@ -58,9 +57,9 @@ const MyCarrousel = (
   };
 
   return {
-    RenderCarrousel,
+    CarrouselComponent: RenderCarrousel,
     focusItem,
   };
 };
 
-export default MyCarrousel;
+export default Carrousel;

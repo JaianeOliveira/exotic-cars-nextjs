@@ -1,13 +1,15 @@
 import type { NextPage } from "next";
-
+import Head from "next/head";
 import { Card } from "components";
-import car from "types/car";
-
 import { Screen } from "./styles";
+import car from "types/car";
 
 const Home: NextPage = ({ data }: any) => {
   return (
     <Screen>
+      <Head>
+        <title>Exotic Cars</title>
+      </Head>
       {data.map((car: car) => (
         <Card key={car.id} {...car} />
       ))}

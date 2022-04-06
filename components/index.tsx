@@ -1,5 +1,5 @@
 import Layout from "./Layout";
 import Card from "./Card";
-import MyCarrousel from "./MyCarrousel";
+import Carrousel from "./Carrousel";
 
-export { Layout, Card, MyCarrousel };
+export { Layout, Card, Carrousel };
