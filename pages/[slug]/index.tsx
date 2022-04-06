@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+
+import { useRouter } from "next/router";
 import {
   Screen,
   CarDataContainer,
@@ -14,9 +16,12 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { Carrousel } from "components";
 import car from "types/car";
 
+type errorData = {
+  message: string;
+};
+
 const CarDetails = ({ data }: { data: car }) => {
   const { CarrouselComponent, focusItem } = Carrousel(data.details);
-
   return (
     <Screen>
       <Head>

@@ -13,6 +13,7 @@ const Carrousel = (
 ) => {
   const [items, setItems] = useState(carDetails);
   const [isLeftDirection, setIsLeftDirection] = useState(false);
+
   const next = () => {
     const newArr = [...items, items[0]];
     newArr.shift();

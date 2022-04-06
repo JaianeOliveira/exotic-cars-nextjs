@@ -33,7 +33,7 @@ export const Card = styled.div<{ isFocused: boolean; isLeft: boolean }>`
 
   img {
     transform: scale(${(props) => (props.isFocused ? 1.5 : 1)});
-    animation: ${(props) => (!props.isLeft ? slideOut : slideIn)} 0.5s ease;
+    animation: ${(props) => (!props.isLeft ? slideOut : slideIn)} 0.4s ease-in;
 
     @media (max-width: 426px) {
       transform: scale(1);
